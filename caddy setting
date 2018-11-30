@@ -1,0 +1,16 @@
+wget -N --no-check-certificate https://raw.githubusercontent.com/hahaluan/http/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager
+mkdir -p mkdir /usr/local/caddy/www/file
+再改一下/usr/local/caddy/Caddyfile
+https://your.domain             //蓝色部分以你自己的配置文件为准
+{
+  root /usr/local/caddy/www/file                      // 修改红色部分 
+   tls website-tls@gmail.com
+  gzip                                                                 // 添加此行
+  filemanager / /usr/local/caddy/www/file {     // 添加此行
+   database /usr/local/caddy/filemanager.db   // 添加此行
+  }                                                                       // 添加此行
+  proxy /fuckgfw_gfwmotherfuckingboom/youruuidyouruuid localhost:yourv2rayport {
+    websocket
+    header_upstream -Origin
+  }
+}
