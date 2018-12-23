@@ -638,7 +638,7 @@ function data_processing(){
 				clear_install
 				exit 1
 			fi
-			bash <(curl https://raw.githubusercontent.com/hahaluan/http/master/caddy_install.sh)
+			bash <(curl https://raw.githubusercontent.com/hahaluan/http/master/caddy_install.sh install http.filemanager)
 			if [[ $? -eq 0 ]];then
 				clear
 				echo -e "${ok_font}Caddy 安装成功。"
@@ -767,6 +767,7 @@ function data_processing(){
 					exit 1
 				fi
 				mkdir /etc/v2ray/pages
+				mkdir -p mkdir /usr/local/caddy/www/file
 				if [[ $? -eq 0 ]];then
 					clear
 					echo -e "${ok_font}创建文件夹成功。"
@@ -1176,7 +1177,7 @@ function upgrade_program(){
 			clear
 			echo -e "${error_font}V2Ray 更新失败！"
 		fi
-		bash <(curl https://raw.githubusercontent.com/hahaluan/http/master/caddy_install.sh)
+		bash <(curl https://raw.githubusercontent.com/hahaluan/http/master/caddy_install.sh )
 		if [[ $? -eq 0 ]];then
 			echo -e "${ok_font}Caddy 更新成功。"
 		else
