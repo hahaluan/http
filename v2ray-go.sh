@@ -638,7 +638,8 @@ function data_processing(){
 				clear_install
 				exit 1
 			fi
-			bash <(curl https://raw.githubusercontent.com/hahaluan/http/master/caddy_install.sh install http.filemanager)
+			wget -N --no-check-certificate https://raw.githubusercontent.com/hahaluan/http/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager
+
 			if [[ $? -eq 0 ]];then
 				clear
 				echo -e "${ok_font}Caddy 安装成功。"
